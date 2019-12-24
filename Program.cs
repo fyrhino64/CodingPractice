@@ -1,0 +1,290 @@
+﻿using System;
+
+namespace BekahHomeworkStuff
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string mainChoice;
+            while (true)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("1. Class SignUp");
+                Console.WriteLine("2. Shopping");
+                Console.WriteLine("3. Loops!");
+                Console.WriteLine("4. Pricing!");
+                Console.WriteLine("5. Quit");
+                mainChoice = Console.ReadLine();
+
+                if (mainChoice == "1")
+                {
+                    ClassSchedule();
+                }
+                else if (mainChoice == "2")
+                {
+                    Shopping();
+                }
+                else if (mainChoice == "3")
+                {
+                    Loops();
+                }
+                else if (mainChoice == "4")
+                {
+                    Pricing();
+                }
+                else if (mainChoice == "5")
+                {
+                    break;
+                }
+            }
+        }//End MainChoices
+        static void ClassSchedule()
+        {
+            Console.ResetColor();
+            int totalClasses=0;
+            string classChoiceCheck;
+            string[] classChoice = new string[6];
+
+            int classMax = 6;
+            Console.WriteLine("\n");
+            for (int i=0; i < classMax; i++)
+            {
+                Console.WriteLine("Enter the class of your choice (" + i+1 +  " of 6) or Type STOP");
+                classChoiceCheck = Console.ReadLine();
+                if (checkIfStop(classChoiceCheck))
+                {
+                    classChoice[i] = classChoiceCheck;
+                    totalClasses++;
+                    Console.WriteLine("You chose " + classChoiceCheck);
+                }
+                else
+                {
+
+                    break;
+                }
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("Your new Class Schedule is: ");
+            foreach (string choice in classChoice)
+            {
+                Console.WriteLine(choice);
+            }
+
+            //hit any key to return to main menu
+            Console.WriteLine("\n");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+        }//End Class Schedules
+
+        static void Shopping()
+        {
+            Console.Clear();
+            Console.ResetColor();
+            int i=0;
+            double cartTotal =0;
+            string classChoice;
+            double numberToAdd;
+            string[,] productPrices = new string[3, 2] { { "Pencils", "1.09" },{ "Notebook", "1.59" },{ "Eraser", "0.55" } };
+            Console.WriteLine("Initial Testing of Multidimensional array");
+
+            while (true)
+            {
+                //while i is less than or equal to the array length will display the below
+                for (int j = 0; j <= 2; j++)
+                {
+                    //display products and their associate prices until user quits
+                    Console.WriteLine(productPrices[i, 0] + ": " + productPrices[i, 1]);
+                    Console.WriteLine("Would you like to add " + productPrices[i, 0] + " to your cart? y or n or STOP to checkout");
+                    classChoice = Console.ReadLine();
+                    //check if user wants to checkout, if not checks if they are adding to cart or not
+                    if (checkIfStop(classChoice))
+                    {
+                        if (classChoice == "y")
+                        {
+                            Console.WriteLine("How many would you like to add?");
+                            numberToAdd = Convert.ToDouble(Console.ReadLine());
+                            //take current item's price, multiply by number of items added, and add to cart total
+                            cartTotal = cartTotal + (Convert.ToDouble(productPrices[i, 1]) * numberToAdd);
+                            Console.WriteLine("Current Cart Total is: $" + cartTotal);
+                            i++;
+                        }
+                        else if (classChoice == "n")
+                        {
+                            Console.WriteLine("Thank you for your input.");
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                Console.WriteLine("Are you ready to checkout? type STOP to checkout or n to continue shopping");
+                classChoice = Console.ReadLine();
+                //checks if user types stop
+                if (checkIfStop(classChoice))
+                {
+                    // sets variable back to 0 to send user back through shopping options
+                    i = 0;
+                }
+                else
+                {
+                    //breaks loop and sends to total screen
+                    break;
+                }
+            }
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Your total today will be: $" + cartTotal);
+
+            //hit any key to return to main menu
+            Console.WriteLine("\n");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+        }//End Shopping
+        
+        static void Loops()
+        {
+            Console.ResetColor();
+            Console.WriteLine("Counting!");
+            int add;
+            int sum = 0;
+
+            for (int i=1; i<=10;i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine("\n");
+            for(int j=0; j<=9;j++)
+            {
+                Console.Write(10 - j + " ");
+            }
+            Console.WriteLine("\n");
+            for(int k=1;k<=20;k++)
+            {
+                if(k % 2 ==0)
+                {
+                    Console.Write(k + " ");
+                }
+            }
+
+            Console.WriteLine("\n");
+            Console.WriteLine("----------------------");
+            Console.WriteLine("Adding Program");
+            for (int r=0; r<=4;r++)
+            {
+                Console.WriteLine("Enter a number: ");
+                add = Convert.ToInt32(Console.ReadLine());
+                sum = sum + add;
+            }
+            Console.WriteLine("The sum of all entered numbers is " + sum);
+
+            //hit any key to return to main menu
+            Console.WriteLine("\n");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }//End Loops
+
+        static void Pricing()
+        {
+            double price;
+            double taxRate;
+            double quarters;
+            double dimes;
+            double nickels;
+            double pennies;
+
+            // Take input for price and tax rate
+            Console.ResetColor();
+            Console.WriteLine("------------------");
+            Console.WriteLine("Price Calculator");
+            Console.WriteLine("\n");
+            Console.WriteLine("Please enter a price: ");
+            price = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Please enter a tax rate: ");
+            taxRate = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Price: " + price);
+            Console.WriteLine("Tax Rate: " + taxRate);
+            //Call Calculation method to calculate and display total from input
+            PricePlusTax(price, taxRate);
+
+            // Take input amount of coins and store in appropriate variables
+            Console.WriteLine("\n");
+            Console.WriteLine("---------------------");
+            Console.WriteLine("How much money do you have in your pocket?");
+            Console.WriteLine("\n");
+            Console.Write("Enter the amount of quarters you have in your pocket: ");
+            quarters = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the amount of dimes you have in your pocket: ");
+            dimes = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the amount of nickels in your pocket: ");
+            nickels = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the amount of pennies in your pocket: ");
+            pennies = Convert.ToDouble(Console.ReadLine());
+            //call calculation method to convert coin amonts into money value
+            CountChange(quarters, dimes, nickels, pennies);
+
+            //hit any key to return to main menu
+            Console.WriteLine("\n");
+            Console.WriteLine("Hit any key to continue...");
+            Console.ReadKey();
+
+        }//End Pricing
+
+        //Check if the string entered is "STOP"
+        static bool checkIfStop(string classChoice)
+        {
+            if (classChoice != "STOP")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }//End Check if stop
+
+
+        //calculate total price from input price and tax values
+        static double PricePlusTax(double Price, double taxRate)
+        {
+            double totalPrice = (Price * taxRate) * 10;
+            //displays the total calculated price up to 2 decimal places
+            Console.WriteLine("Total price with tax is: " + Math.Round(totalPrice,2));
+            return totalPrice;
+        }//End Calculating total price
+
+        //convert amount of coins into the total value of the coins
+        static double CountChange(double quarters, double dimes, double nickels, double pennies)
+        {
+            double ratioQ = .25;
+            double ratioD = .10;
+            double ratioN = .05;
+            double ratioP = .01;
+            double totalChange;
+            double quarterWorth;
+            double dimeWorth;
+            double nickelWorth;
+            double pennyWorth;
+
+            //convert amount of coins into the associated value of the coins
+            quarterWorth = quarters * ratioQ;
+            dimeWorth = dimes * ratioD;
+            nickelWorth = nickels * ratioN;
+            pennyWorth = pennies * ratioP;
+
+            //add total of each coin's value together
+            totalChange = quarterWorth + dimeWorth + nickelWorth + pennyWorth;
+            
+            //display total and retunr total to main method
+            Console.WriteLine("You have: $" + totalChange + " in your pocket.");
+            return totalChange;
+        }
+    }
+
+}
