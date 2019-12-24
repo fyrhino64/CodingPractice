@@ -109,7 +109,7 @@ namespace BekahHomeworkStuff
                             numberToAdd = Convert.ToDouble(Console.ReadLine());
                             //take current item's price, multiply by number of items added, and add to cart total
                             cartTotal = cartTotal + (Convert.ToDouble(productPrices[i, 1]) * numberToAdd);
-                            Console.WriteLine("Current Cart Total is: $" + cartTotal);
+                            Console.WriteLine("Current Cart Total is: $" + Math.Round(cartTotal,2);
                             i++;
                         }
                         else if (classChoice == "n")
@@ -139,7 +139,7 @@ namespace BekahHomeworkStuff
             }
 
             Console.WriteLine("\n");
-            Console.WriteLine("Your total today will be: $" + cartTotal);
+            Console.WriteLine("Your total today will be: $" + Math.Round(cartTotal,2));
 
             //hit any key to return to main menu
             Console.WriteLine("\n");
@@ -281,8 +281,8 @@ namespace BekahHomeworkStuff
             //add total of each coin's value together
             totalChange = quarterWorth + dimeWorth + nickelWorth + pennyWorth;
             
-            //display total and retunr total to main method
-            Console.WriteLine("You have: $" + totalChange + " in your pocket.");
+            //display total and return total to main method
+            Console.WriteLine("You have: $" + Math.Round(totalChange,2) + " in your pocket.");
             return totalChange;
         }
     }
