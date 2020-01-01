@@ -109,7 +109,7 @@ namespace BekahHomeworkStuff
                             numberToAdd = Convert.ToDouble(Console.ReadLine());
                             //take current item's price, multiply by number of items added, and add to cart total
                             cartTotal = cartTotal + (Convert.ToDouble(productPrices[i, 1]) * numberToAdd);
-                            Console.WriteLine("Current Cart Total is: $" + Math.Round(cartTotal,2);
+                            Console.WriteLine("Current Cart Total is: $" + Math.Round(cartTotal,2));
                             i++;
                         }
                         else if (classChoice == "n")
