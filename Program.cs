@@ -44,6 +44,7 @@ namespace BekahHomeworkStuff
         static void ClassSchedule()
         {
             Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             int totalClasses=0;
             string classChoiceCheck;
             string[] classChoice = new string[6];
