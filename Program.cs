@@ -13,6 +13,7 @@ namespace BekahHomeworkStuff
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("1. Class SignUp");
+
                 Console.WriteLine("2. Shopping");
                 Console.WriteLine("3. Loops!");
                 Console.WriteLine("4. Pricing!");
@@ -53,7 +54,7 @@ namespace BekahHomeworkStuff
             Console.WriteLine("\n");
             for (int i=0; i < classMax; i++)
             {
-                Console.WriteLine("Enter the class of your choice (" + i+1 +  " of 6) or Type STOP");
+                Console.WriteLine("Enter the class of your choice (" + (i+1) +  " of 6) or Type STOP");
                 classChoiceCheck = Console.ReadLine();
                 if (checkIfStop(classChoiceCheck))
                 {
