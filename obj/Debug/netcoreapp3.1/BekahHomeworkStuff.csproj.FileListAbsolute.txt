@@ -1,0 +1,11 @@
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\bin\Debug\netcoreapp3.1\BekahHomeworkStuff.exe
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\bin\Debug\netcoreapp3.1\BekahHomeworkStuff.deps.json
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\bin\Debug\netcoreapp3.1\BekahHomeworkStuff.runtimeconfig.json
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\bin\Debug\netcoreapp3.1\BekahHomeworkStuff.runtimeconfig.dev.json
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\bin\Debug\netcoreapp3.1\BekahHomeworkStuff.dll
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\bin\Debug\netcoreapp3.1\BekahHomeworkStuff.pdb
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\obj\Debug\netcoreapp3.1\BekahHomeworkStuff.csprojAssemblyReference.cache
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\obj\Debug\netcoreapp3.1\BekahHomeworkStuff.AssemblyInfoInputs.cache
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\obj\Debug\netcoreapp3.1\BekahHomeworkStuff.AssemblyInfo.cs
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\obj\Debug\netcoreapp3.1\BekahHomeworkStuff.dll
+C:\Users\rebekah.gall\source\repos\fyrhino64\CodingPractice\obj\Debug\netcoreapp3.1\BekahHomeworkStuff.pdb
