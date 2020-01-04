@@ -90,15 +90,19 @@ namespace BekahHomeworkStuff
             double cartTotal =0;
             string classChoice;
             double numberToAdd;
-            string[,] productPrices = new string[3, 2] { { "Pencils", "1.09" },{ "Notebook", "1.59" },{ "Eraser", "0.55" } };
-            Console.WriteLine("Initial Testing of Multidimensional array");
-
+            string[,] productPrices = new string[5, 2] { { "Pencils", "1.09" }, { "Notebook", "1.59" }, { "Eraser", "0.55" }, { "Planner", "5.00" },{ "School Shirt", "12.62" } };
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Let's do some School Shopping!");
+            Console.WriteLine("Review the items available for sale below and follow the prompts to add themt o your cart!");
+            Console.ResetColor();
+            Console.WriteLine("\n");
             while (true)
             {
                 //while i is less than or equal to the array length will display the below
-                for (int j = 0; j <= 2; j++)
+                for (int j = 0; j <= 4; j++)
                 {
                     //display products and their associate prices until user quits
+                    Console.WriteLine("\n");
                     Console.WriteLine(productPrices[i, 0] + ": " + productPrices[i, 1]);
                     Console.WriteLine("Would you like to add " + productPrices[i, 0] + " to your cart? y or n or STOP to checkout");
                     classChoice = Console.ReadLine();
