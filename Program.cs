@@ -17,7 +17,8 @@ namespace BekahHomeworkStuff
                 Console.WriteLine("2. Shopping");
                 Console.WriteLine("3. Loops!");
                 Console.WriteLine("4. Pricing!");
-                Console.WriteLine("5. Quit");
+                Console.WriteLine("5. Indexed Shopping");
+                Console.WriteLine("6. Quit");
                 mainChoice = Console.ReadLine();
 
                 if (mainChoice == "1")
@@ -38,6 +39,10 @@ namespace BekahHomeworkStuff
                 }
                 else if (mainChoice == "5")
                 {
+                    indexShopping();
+                }
+                else if (mainChoice == "6")
+                {
                     break;
                 }
             }
@@ -46,15 +51,15 @@ namespace BekahHomeworkStuff
         {
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            int totalClasses=0;
+            int totalClasses = 0;
             string classChoiceCheck;
             string[] classChoice = new string[6];
 
             int classMax = 6;
             Console.WriteLine("\n");
-            for (int i=0; i < classMax; i++)
+            for (int i = 0; i < classMax; i++)
             {
-                Console.WriteLine("Enter the class of your choice (" + (i+1) +  " of 6) or Type STOP");
+                Console.WriteLine("Enter the class of your choice (" + (i + 1) + " of 6) or Type STOP");
                 classChoiceCheck = Console.ReadLine();
                 if (checkIfStop(classChoiceCheck))
                 {
@@ -86,11 +91,11 @@ namespace BekahHomeworkStuff
         {
             Console.Clear();
             Console.ResetColor();
-            int i=0;
-            double cartTotal =0;
+            int i = 0;
+            double cartTotal = 0;
             string classChoice;
             double numberToAdd;
-            string[,] productPrices = new string[5, 2] { { "Pencils", "1.09" }, { "Notebook", "1.59" }, { "Eraser", "0.55" }, { "Planner", "5.00" },{ "School Shirt", "12.62" } };
+            string[,] productPrices = new string[5, 2] { { "Pencils", "1.09" }, { "Notebook", "1.59" }, { "Eraser", "0.55" }, { "Planner", "5.00" }, { "School Shirt", "12.62" } };
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Let's do some School Shopping!");
             Console.WriteLine("Review the items available for sale below and follow the prompts to add themt o your cart!");
@@ -115,7 +120,7 @@ namespace BekahHomeworkStuff
                             numberToAdd = Convert.ToDouble(Console.ReadLine());
                             //take current item's price, multiply by number of items added, and add to cart total
                             cartTotal = cartTotal + (Convert.ToDouble(productPrices[i, 1]) * numberToAdd);
-                            Console.WriteLine("Current Cart Total is: $" + Math.Round(cartTotal,2));
+                            Console.WriteLine("Current Cart Total is: $" + Math.Round(cartTotal, 2));
                             i++;
                         }
                         else if (classChoice == "n")
@@ -145,7 +150,7 @@ namespace BekahHomeworkStuff
             }
 
             Console.WriteLine("\n");
-            Console.WriteLine("Your total today will be: $" + Math.Round(cartTotal,2));
+            Console.WriteLine("Your total today will be: $" + Math.Round(cartTotal, 2));
 
             //hit any key to return to main menu
             Console.WriteLine("\n");
@@ -153,7 +158,7 @@ namespace BekahHomeworkStuff
             Console.ReadKey();
 
         }//End Shopping
-        
+
         static void Loops()
         {
             Console.ResetColor();
@@ -161,19 +166,19 @@ namespace BekahHomeworkStuff
             int add;
             int sum = 0;
 
-            for (int i=1; i<=10;i++)
+            for (int i = 1; i <= 10; i++)
             {
                 Console.Write(i + " ");
             }
             Console.WriteLine("\n");
-            for(int j=0; j<=9;j++)
+            for (int j = 0; j <= 9; j++)
             {
                 Console.Write(10 - j + " ");
             }
             Console.WriteLine("\n");
-            for(int k=1;k<=20;k++)
+            for (int k = 1; k <= 20; k++)
             {
-                if(k % 2 ==0)
+                if (k % 2 == 0)
                 {
                     Console.Write(k + " ");
                 }
@@ -182,7 +187,7 @@ namespace BekahHomeworkStuff
             Console.WriteLine("\n");
             Console.WriteLine("----------------------");
             Console.WriteLine("Adding Program");
-            for (int r=0; r<=4;r++)
+            for (int r = 0; r <= 4; r++)
             {
                 Console.WriteLine("Enter a number: ");
                 add = Convert.ToInt32(Console.ReadLine());
@@ -242,6 +247,70 @@ namespace BekahHomeworkStuff
 
         }//End Pricing
 
+        //The below is essentially the same as the Shopping program. But below, we are calling indexes in addition to the use of a multidimensional array
+        static void indexShopping()
+        {
+            string classChoice;
+            double quantity;
+            double cartTotal = 0;
+            int i = 0;
+            //intializes/gets data store in IndexStoreProducts class array
+            indexDataStoreProducts ic = new indexDataStoreProducts();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Let's do some school shopping!");
+            Console.WriteLine("Review the items available for sale below and follow the prompts to add themt o your cart!");
+            while (true)
+            {
+                for (int j=0; j<=2; j++)
+                {
+                    Console.WriteLine("\n");
+                    Console.WriteLine(ic[i, 0] + ": " + ic[i, 1]);
+                    Console.WriteLine("Would you like to add " + ic[i,0] + " to your cart? y or n or STOP to checkout");
+                    classChoice = Console.ReadLine();
+                    if (checkIfStop(classChoice))
+                    {
+                        if (classChoice == "y")
+                        {
+                            Console.WriteLine("How many would you like to add?");
+                            quantity = Convert.ToDouble(Console.ReadLine());
+                            cartTotal = cartTotal + (Convert.ToDouble(ic[i,1]) * quantity);
+                            Console.WriteLine("Current Cart Total is: $" + Math.Round(cartTotal, 2));
+                            i++;
+                        }
+                        else if (classChoice == "n")
+                        {
+                            Console.WriteLine("Thank you for your input");
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                   
+                }
+                Console.WriteLine("Are you ready to checkout? Type STOP to checkout or 'n' to continue shopping");
+                classChoice = Console.ReadLine();
+                if (checkIfStop(classChoice))
+                {
+                    i = 0;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("Your total today will be: $" + Math.Round(cartTotal, 2));
+
+            Console.WriteLine("Hit any key to continue...");
+            Console.ReadKey();
+
+        }//End IndexShopping
+
+
+
         //Check if the string entered is "STOP"
         static bool checkIfStop(string classChoice)
         {
@@ -261,7 +330,7 @@ namespace BekahHomeworkStuff
         {
             double totalPrice = (Price * taxRate) * 10;
             //displays the total calculated price up to 2 decimal places
-            Console.WriteLine("Total price with tax is: " + Math.Round(totalPrice,2));
+            Console.WriteLine("Total price with tax is: " + Math.Round(totalPrice, 2));
             return totalPrice;
         }//End Calculating total price
 
@@ -286,11 +355,30 @@ namespace BekahHomeworkStuff
 
             //add total of each coin's value together
             totalChange = quarterWorth + dimeWorth + nickelWorth + pennyWorth;
-            
+
             //display total and return total to main method
-            Console.WriteLine("You have: $" + Math.Round(totalChange,2) + " in your pocket.");
+            Console.WriteLine("You have: $" + Math.Round(totalChange, 2) + " in your pocket.");
             return totalChange;
         }
     }
+    class indexDataStoreProducts
+    {
+        //Arrays of products and prices
+        string[,] products = new string[3, 2] { { "Pencils", "1.09" }, { "Notebook", "1.59" }, {"Eraser", "0.55" } };
 
+        public string this[int index1, int index2]
+        {
+            get
+            {
+                //get the values of the associated multidimensional array
+                return products[index1, index2];
+            }
+            set
+            {
+                //set the values of the associated multidimensional array
+                products[index1, index2] = value;
+            }
+        }
+
+    }
 }
