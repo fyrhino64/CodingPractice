@@ -12,8 +12,8 @@ namespace BekahHomeworkStuff
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("What would you like to do?");
+                Console.ResetColor();
                 Console.WriteLine("1. Class SignUp");
-
                 Console.WriteLine("2. Shopping");
                 Console.WriteLine("3. Loops!");
                 Console.WriteLine("4. Pricing!");
@@ -49,12 +49,17 @@ namespace BekahHomeworkStuff
         }//End MainChoices
         static void ClassSchedule()
         {
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             int totalClasses = 0;
             string classChoiceCheck;
             string[] classChoice = new string[6];
 
+            Console.WriteLine("Class Signup");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("It's time to sign up for next semesters classes. Please follow the below prompts to enter your desired class schedule!");
+
+            Console.ResetColor();
             int classMax = 6;
             Console.WriteLine("\n");
             for (int i = 0; i < classMax; i++)
@@ -96,8 +101,9 @@ namespace BekahHomeworkStuff
             string classChoice;
             double numberToAdd;
             string[,] productPrices = new string[5, 2] { { "Pencils", "1.09" }, { "Notebook", "1.59" }, { "Eraser", "0.55" }, { "Planner", "5.00" }, { "School Shirt", "12.62" } };
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Let's do some School Shopping!");
+            Console.WriteLine("---------------------------");
             Console.WriteLine("Review the items available for sale below and follow the prompts to add themt o your cart!");
             Console.ResetColor();
             Console.WriteLine("\n");
@@ -161,8 +167,12 @@ namespace BekahHomeworkStuff
 
         static void Loops()
         {
+            Console.Clear();
             Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Counting!");
+            Console.WriteLine("---------------------------");
+            Console.ResetColor();
             int add;
             int sum = 0;
 
@@ -211,9 +221,11 @@ namespace BekahHomeworkStuff
             double pennies;
 
             // Take input for price and tax rate
+            Console.Clear();
             Console.ResetColor();
-            Console.WriteLine("------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Price Calculator");
+            Console.WriteLine("------------------");
             Console.WriteLine("\n");
             Console.WriteLine("Please enter a price: ");
             price = Convert.ToDouble(Console.ReadLine());
@@ -227,8 +239,12 @@ namespace BekahHomeworkStuff
             // Take input amount of coins and store in appropriate variables
             Console.WriteLine("\n");
             Console.WriteLine("---------------------");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("How much money do you have in your pocket?");
             Console.WriteLine("\n");
+            Console.WriteLine("---------------------");
+            Console.ResetColor();
             Console.Write("Enter the amount of quarters you have in your pocket: ");
             quarters = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter the amount of dimes you have in your pocket: ");
@@ -257,9 +273,10 @@ namespace BekahHomeworkStuff
             //intializes/gets data store in IndexStoreProducts class array
             indexDataStoreProducts ic = new indexDataStoreProducts();
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Let's do some school shopping!");
             Console.WriteLine("Review the items available for sale below and follow the prompts to add themt o your cart!");
+            Console.ResetColor();
             while (true)
             {
                 for (int j=0; j<=2; j++)
