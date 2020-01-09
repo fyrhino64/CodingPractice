@@ -227,6 +227,7 @@ namespace BekahHomeworkStuff
             Console.WriteLine("Price Calculator");
             Console.WriteLine("------------------");
             Console.WriteLine("\n");
+            Console.ResetColor();
             Console.WriteLine("Please enter a price: ");
             price = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Please enter a tax rate: ");
@@ -345,7 +346,8 @@ namespace BekahHomeworkStuff
         //calculate total price from input price and tax values
         static double PricePlusTax(double Price, double taxRate)
         {
-            double totalPrice = (Price * taxRate) * 10;
+            double taxToAdd = (Price * taxRate);
+            double totalPrice = (Price + taxToAdd);
             //displays the total calculated price up to 2 decimal places
             Console.WriteLine("Total price with tax is: " + Math.Round(totalPrice, 2));
             return totalPrice;
