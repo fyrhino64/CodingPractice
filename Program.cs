@@ -18,7 +18,8 @@ namespace BekahHomeworkStuff
                 Console.WriteLine("3. Loops!");
                 Console.WriteLine("4. Pricing!");
                 Console.WriteLine("5. Indexed Shopping");
-                Console.WriteLine("6. Quit");
+                Console.WriteLine("6. Madlib - The Princess ");
+                Console.WriteLine("7. Quit");
                 mainChoice = Console.ReadLine();
 
                 if (mainChoice == "1")
@@ -42,6 +43,10 @@ namespace BekahHomeworkStuff
                     indexShopping();
                 }
                 else if (mainChoice == "6")
+                {
+                    Princess();
+                }
+                else if (mainChoice == "7")
                 {
                     break;
                 }
@@ -264,7 +269,7 @@ namespace BekahHomeworkStuff
 
         }//End Pricing
 
-        //The below is essentially the same as the Shopping program. But below, we are calling indexes in addition to the use of a multidimensional array
+        //The below is essentially the same as the previous Shopping program. But we are using an index in addition to a multidimensional array
         static void indexShopping()
         {
             string classChoice;
@@ -327,7 +332,68 @@ namespace BekahHomeworkStuff
 
         }//End IndexShopping
 
+        static void Princess()
+        {
+            string name;
+            string cityName;
+            string kingName;
+            string verb;
+            string adjective;
+            string weather;
+            string place;
+            string doomsDay;
+            string transport;
+            string verb2;
+            string animal;
+            Console.Clear();
 
+            //madlib word entry setup
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("The Princess");
+            Console.WriteLine("------------------");
+            Console.WriteLine("Please fill out the below and once completed, your madlib will generate!");
+            Console.ResetColor();
+            Console.WriteLine("\n");
+            Console.Write("Please enter the name of your princess: ");
+            name = Console.ReadLine();
+            Console.Write("Enter a city: ");
+            cityName = Console.ReadLine();
+            Console.Write("Enter an adjective: ");
+            adjective = Console.ReadLine();
+            Console.Write("Enter another name: ");
+            kingName = Console.ReadLine();
+            Console.Write("Enter a type of weather: ");
+            weather = Console.ReadLine();
+            Console.Write("Enter a place: ");
+            place = Console.ReadLine();
+            Console.Write("Enter your favorite Doomsday: ");
+            doomsDay = Console.ReadLine();
+            Console.Write("Enter a verb ending in 'ed': ");
+            verb = Console.ReadLine();
+            Console.Write("Enter a mode of transport: ");
+            transport = Console.ReadLine();
+            Console.Write("Enter a verb ending in 'ing': ");
+            verb2 = Console.ReadLine();
+            Console.Write("Enter an animal: ");
+            animal = Console.ReadLine();
+
+
+            //madlib generation
+            Console.WriteLine("\n");
+            Console.WriteLine("Once upon a time, there was a " + adjective + " princess named " + name);
+            Console.WriteLine("The princess ruled over " + cityName + " with the guidance of her father the king " + kingName);
+            Console.WriteLine("One day a terrible " + weather + " descended upon " + cityName);
+            Console.WriteLine("The king gathered all of the townspeople up in the " + place + ". He took a deep breath and then " + verb );
+            Console.WriteLine(doomsDay + " has finally come! Quickly we must escape to the ancient " + transport);
+            Console.WriteLine("The townspeople began to " + verb2 + " towards the clearing at the end of town.");
+            Console.WriteLine(name + " grabbed her trusty " + animal + " and " + verb2 + " with the other townspeople.");
+            Console.WriteLine("But it was too late. The " + doomsDay + " had come. Everyone died.");
+            Console.WriteLine("The End.");
+            Console.WriteLine("\n");
+
+            Console.WriteLine("Hit any key to continue...");
+            Console.ReadKey();
+        }
 
         //Check if the string entered is "STOP"
         static bool checkIfStop(string classChoice)
